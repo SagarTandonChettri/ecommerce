@@ -61,7 +61,6 @@ public class ProductService {
     }
 
     // CREATE PRODUCT (ADMIN ONLY)
-    @ExceptionHandler
     public Product createProduct(String productCode, String name,
                                  String description, double price,
                                  MultipartFile image) {

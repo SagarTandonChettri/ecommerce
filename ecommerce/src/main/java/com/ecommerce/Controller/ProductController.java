@@ -30,8 +30,8 @@ public class ProductController {
 
 
     // CREATE PRODUCT (ADMIN ONLY)
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ApiResponse> createProduct(
             @RequestParam String productCode,
             @RequestParam String name,
