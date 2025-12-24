@@ -1,0 +1,46 @@
+# 🛒 E-Commerce Backend (Spring Boot)
+This project is currently under development and represents the backend part only of an e-commerce application.
+I am building this project while learning and working on it by myself.
+
+At this stage, the project is not complete, so this README only briefly mentions what has been implemented so far. Once the project is fully completed, I will update this README with a detailed explanation of the complete system, including how each feature works and how the logic is implemented.
+
+Thank you for taking the time to review this repository.
+I really appreciate it.
+
+Peace
+
+-----------------------------------------------------------------------------------------------------------------------
+If you would like to understand the logic in more detail, please refer to the Detail file.
+
+Also, if you notice any typing or grammar mistakes in the Detail file, please ignore them.
+-----------------------------------------------------------------------------------------------------------------------
+
+## Features
+- User Registration & Login (JWT)
+- Role-based Authorization (ADMIN / USER)
+- Product Management (Admin only)
+- Secure Image Upload
+- Cart Management
+- Global Exception Handling
+- MongoDB Integration
+
+## Tech Stack
+- Java 17
+- Spring Boot
+- Spring Security
+- JWT
+- MongoDB
+- Maven
+
+## API Modules
+- Auth
+- Products
+- Cart
+- Orders (coming next)
+
+## Security
+- Stateless JWT authentication
+- Role-based access control
+
+## Status
+🚧 Order module in progress
