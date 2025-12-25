@@ -1,28 +1,77 @@
-# 🛒 E-Commerce Backend (Spring Boot)
-This project is currently under development and represents the backend part only of an e-commerce application.
-I am building this project while learning and working on it by myself.
+E-Commerce Backend (Spring Boot)
 
-At this stage, the project is not complete, so this README only briefly mentions what has been implemented so far. Once the project is fully completed, I will update this README with a detailed explanation of the complete system, including how each feature works and how the logic is implemented.
-
-Thank you for taking the time to review this repository.
-I really appreciate it.
-
-Peace
+  This project is currently under development and represents the backend-only part of an e-commerce application.
+  
+  I am building this project independently while learning backend development and real-world system design. 
+  The goal of this project is not just to make APIs work, but to understand proper backend flow, security, and architecture used in real production systems.
+  
+  At this stage, the project is functionally complete for core e-commerce flows, but future improvements and refinements are still planned.
+  
+  Thank you for taking the time to review this repository.
+  I really appreciate it.
+  
+  Peace
 
 -----------------------------------------------------------------------------------------------------------------------
-If you would like to understand the logic in more detail, please refer to the Detail file.
-
-Also, if you notice any typing or grammar mistakes in the Detail file, please ignore them.
+Important Note
+  If you would like to understand the logic in more detail, please refer to the Detail file.
+  Also, if you notice any typing or grammar mistakes in the Detail file, please ignore them.
 -----------------------------------------------------------------------------------------------------------------------
 
 ## Features
-- User Registration & Login (JWT)
-- Role-based Authorization (ADMIN / USER)
-- Product Management (Admin only)
-- Secure Image Upload
-- Cart Management
-- Global Exception Handling
-- MongoDB Integration
+  User Registration & Login (JWT-based authentication)
+  Role-based Authorization (ADMIN / USER)
+  Secure Product Management (Admin only)
+  Secure Image Upload & Validation
+  Cart Management (Add / Remove / View)
+  Order Creation from Cart (Immutable Order Snapshot)
+  Order History (User-specific)
+  Payment Processing (Simulated)
+  Order Status Protection (CREATED → PAID / FAILED)
+  Global Exception Handling with clean API responses
+  MongoDB Integration
+  Clean DTO-based API responses (No internal IDs exposed)
+
+Modules Overview
+  Auth Module
+  Register & Login
+  JWT token generation
+  Role-based access control
+
+Product Module
+  Create product (ADMIN only)
+  Fetch all products
+  Fetch product details
+  Delete product
+
+Cart Module
+  One cart per authenticated user
+  Add product to cart
+  Update quantity
+  Remove product from cart
+  Cart is cleared after successful order/payment
+
+Order Module
+  Create order from cart
+  Order snapshot (independent of cart)
+  Order history per user
+  Order status lifecycle:
+  CREATED
+  PAID
+  FAILED
+
+Payment Module (Simulated)
+  Payment processed via backend (no frontend yet)
+  Transaction ID generation
+  Status update based on payment result
+  Designed to easily integrate real payment gateways later (Razorpay / Stripe / PayPal)
+
+Security
+  Stateless JWT authentication
+  Role-based endpoint protection
+  Users can access only their own data
+  Admin privileges limited to product management
+  No user can see another user’s orders
 
 ## Tech Stack
 - Java 17
@@ -33,14 +82,11 @@ Also, if you notice any typing or grammar mistakes in the Detail file, please ig
 - Maven
 
 ## API Modules
-- Auth
-- Products
-- Cart
-- Orders (coming next)
-
-## Security
-- Stateless JWT authentication
-- Role-based access control
+Auth
+Products
+Cart
+Orders
+Payment
 
 ## Status
-🚧 Order module in progress
+🚧 FrontEnd Under Development
