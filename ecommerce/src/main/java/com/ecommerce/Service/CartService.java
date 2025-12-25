@@ -27,19 +27,19 @@ public class CartService {
     @Autowired
     private ProductRepository productRepository;
 
-    // ADD TO CART - Your exact logic, just with try-catch
+    // ADD TO CART
     public Cart addToCart(String userId, String productCode, int quantity) {
 
         log.info("Add to cart request. userId={}, productCode={}, quantity={}",
                 userId, productCode, quantity);
 
         try {
-            // Your exact validation
+            // exact validation
             if (quantity <= 0) {
                 throw new InvalidQuantityException("Quantity must be greater than zero");
             }
 
-            // Your exact product fetch
+            // exact product fetch
             Product product = productRepository.findByProductCode(productCode)
                     .orElseThrow(() ->
                             new ProductNotFoundException(
@@ -47,7 +47,7 @@ public class CartService {
                             )
                     );
 
-            // Your exact cart fetch/create logic
+            // exact cart fetch/create logic
             Cart cart = cartRepository.findByUserId(userId)
                     .orElseGet(() -> {
                         log.info("No cart found for user. Creating new cart. userId={}", userId);
@@ -58,7 +58,7 @@ public class CartService {
                                 .build();
                     });
 
-            // Your exact item check logic
+            // exact item check logic
             Optional<CartItem> existingItemOpt = cart.getItems().stream()
                     .filter(item -> item.getProductCode().equals(productCode))
                     .findFirst();
