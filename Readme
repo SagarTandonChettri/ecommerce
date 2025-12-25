@@ -12,11 +12,7 @@ E-Commerce Backend (Spring Boot)
   
   Peace
 
------------------------------------------------------------------------------------------------------------------------
-Important Note
-  If you would like to understand the logic in more detail, please refer to the Detail file.
-  Also, if you notice any typing or grammar mistakes in the Detail file, please ignore them.
------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 ## Features
   User Registration & Login (JWT-based authentication)
