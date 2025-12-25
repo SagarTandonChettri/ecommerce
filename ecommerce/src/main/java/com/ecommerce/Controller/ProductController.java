@@ -1,20 +1,16 @@
 package com.ecommerce.Controller;
 
 import com.ecommerce.ApiResponse.ApiResponse;
-import com.ecommerce.ApiResponse.CreateProductResponse;
+import com.ecommerce.Dto.CreateProductDto;
 import com.ecommerce.Dto.ProductDetailDTO;
 import com.ecommerce.Dto.ProductListDto;
 import com.ecommerce.Entity.Product;
-import com.ecommerce.Exception.ImageValidationException;
-import com.ecommerce.Exception.ProductAlreadyExistsException;
-import com.ecommerce.Exception.ProductNotFoundException;
 import com.ecommerce.Service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,7 +43,7 @@ public class ProductController {
 
         log.info("Product created successfully. productCode={}",savedProduct.getProductCode());
 
-        CreateProductResponse productResponse = CreateProductResponse.builder()
+        CreateProductDto productResponse = CreateProductDto.builder()
                 .productCode(savedProduct.getProductCode())
                 .name(savedProduct.getName())
                 .description(savedProduct.getDescription())

@@ -1,11 +1,11 @@
-package com.ecommerce.ApiResponse;
+package com.ecommerce.Dto;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class OrderItemResponse {
+public class OrderItemResponseDto {
     private String productCode;
     private String name;
     private double price;

@@ -1,8 +1,7 @@
 package com.ecommerce.Controller;
 
 import com.ecommerce.ApiResponse.ApiResponse;
-import com.ecommerce.ApiResponse.OrderResponse;
-import com.ecommerce.Entity.Order;
+import com.ecommerce.Dto.OrderResponseDto;
 import com.ecommerce.Service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +26,13 @@ public class OrderController {
     public ResponseEntity<ApiResponse> createOrder(@AuthenticationPrincipal String userId){
         log.info("Order request received for userId={}", userId);
 
-        OrderResponse orderResponse = orderService.createOrder(userId);
+        OrderResponseDto orderResponseDto = orderService.createOrder(userId);
 
         ApiResponse response = ApiResponse.builder()
                 .success(true)
                 .statusCode(201)
                 .message("Order created successfully")
-                .data(orderResponse)
+                .data(orderResponseDto)
                 .build();
 
         return ResponseEntity.status(201).body(response);
@@ -44,7 +43,7 @@ public class OrderController {
         log.info("Fetching All User Order by UserID={}",userId);
 
 
-        List<OrderResponse> orders = orderService.getOrderHistory(userId);
+        List<OrderResponseDto> orders = orderService.getOrderHistory(userId);
 
         ApiResponse response = ApiResponse.builder()
                 .success(true)

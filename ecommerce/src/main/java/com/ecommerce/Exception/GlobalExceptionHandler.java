@@ -1,7 +1,6 @@
 package com.ecommerce.Exception;
 
 import com.ecommerce.ApiResponse.ApiResponse;
-import com.ecommerce.Entity.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -162,16 +161,17 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
 
-    // ========== CATCH-ALL EXCEPTION ==========
+    // ========= PAYMENT EXCCEPTION ============
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponse> handleGeneralException(Exception ex) {
-        log.error("Unexpected error: {}", ex.getMessage(), ex);
+    public ResponseEntity<ApiResponse> handlePaymentException(Exception ex){
+        log.error("Payment error: {}", ex.getMessage(), ex);
         ApiResponse response = ApiResponse.builder()
                 .success(false)
-                .statusCode(500)
-                .message("An unexpected error occurred")
+                .statusCode(400)
+                .message(ex.getMessage())
                 .data(null)
                 .build();
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
+
 }
